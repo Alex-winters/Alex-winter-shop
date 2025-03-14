@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunter Rank Detector</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        button {
+            background-color: gold;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #rank {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #reawaken {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hunter Rank Detector</h1>
+        <p>Tap the button to reveal your Rank!</p>
+        <button id="reveal">Tap to Reveal</button>
+        <p id="rank">Your Rank: <span id="rankValue">?????</span></p>
+        <button id="reawaken">Reawaken</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let rank = localStorage.getItem("hunterRank");
+            if (rank) {
+                document.getElementById("rankValue").textContent = rank;
+                document.getElementById("reveal").disabled = true;
+                document.getElementById("reawaken").style.display = "inline-block";
+            }
+        });
+
+        document.getElementById("reveal").addEventListener("click", function() {
+            let ranks = ["E", "D", "C", "B", "A", "S",];
+            let chosenRank = ranks[Math.floor(Math.random() * ranks.length)];
+            document.getElementById("rankValue").textContent = chosenRank;
+            localStorage.setItem("hunterRank", chosenRank);
+            this.disabled = true;
+            document.getElementById("reawaken").style.display = "inline-block";
+        });
+
+        document.getElementById("reawaken").addEventListener("click", function() {
+            window.location.href = "pay.html";
+        });
+    </script>
+</body>
+</html>

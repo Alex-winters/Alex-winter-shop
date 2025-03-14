@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reawaken Payment</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .qr-container {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <h1>Complete Payment to Reawaken</h1>
+    <p>Scan the QR code below or use the details provided to complete your payment.</p>
+    <div class="qr-container">
+        <img src="your-gpay-qr-code.png" alt="GPay QR Code" width="200">
+    </div>
+    <p><strong>UPI ID:</strong> your-upi-id@bank</p>
+    <button onclick="confirmPayment()">I Have Paid</button>
+    
+    <script>
+        function confirmPayment() {
+            alert("Payment Confirmed! Redirecting...");
+            window.location.href = "Paid.html"; // Redirect back to main page
+        }
+    </script>
+</body>
+</html>
